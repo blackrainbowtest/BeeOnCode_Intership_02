@@ -1,7 +1,6 @@
 import { Box, Button } from "@mui/material";
-import { memo, useState } from "react";
+import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as AddSvg } from "static/add_image.svg";
 import styled from "styled-components";
 import { FormProvider, useForm } from "react-hook-form";
 import InputContent from "./content/InputContent";

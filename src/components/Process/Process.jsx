@@ -32,4 +32,9 @@ const SVGContainer = styled(Box)(({ theme }) => ({
     width: "100%",
     height: "100%",
   },
+  "& svg:hover": {
+    width: "60px",
+    height: "60px",
+    transform: "translate(-5px, -5px)",
+  },
 }));

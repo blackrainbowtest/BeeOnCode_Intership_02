@@ -9,9 +9,9 @@ const processSlice = createSlice({
     name: 'process',
     initialState: initialState,
     reducers: {
-        // changeGender: (state, action) => {
-        //     state.gender = action.payload;
-        // }
+        updateProcessOrder: (state, action) => {
+            state.data = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -21,9 +21,12 @@ const processSlice = createSlice({
             .addCase(addProcess.fulfilled, (state, action) => {
                 state.data = [...state.data, action.payload];
             })
+            .addCase(updateProcessOrder.fulfilled, (state, action) => {
+                state.data = action.payload;
+            });
     }
 });
 
-export default processSlice.reducer;
+export const { updateProcessOrder } = processSlice.actions;
 
-// export const { } = processSlice.actions;
+export default processSlice.reducer;

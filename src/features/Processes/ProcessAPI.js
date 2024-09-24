@@ -27,3 +27,15 @@ export const addProcess = createAsyncThunk(
         }
     }
 );
+
+export const updateProcessOrder = createAsyncThunk(
+    'put/updateProcessOrder',
+    async (processes, { rejectWithValue }) => {
+        try {
+            const response = await axios.put(`${url}/Processes`, processes);
+            return response.data;
+        } catch (err) {
+            return rejectWithValue(err.message);
+        }
+    }
+);

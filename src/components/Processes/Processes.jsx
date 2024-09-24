@@ -42,7 +42,6 @@ const MainContainer = styled(Box)(({ theme }) => ({
 
 const ProcessesContainer = styled(Box)(({ theme }) => ({
   minWidth: "100%",
-  minHeight: "150px",
   display: "flex",
   flexWrap: "nowrap",
 }));
