@@ -28,12 +28,15 @@ export const addProcess = createAsyncThunk(
     }
 );
 
-export const updateProcessOrder = createAsyncThunk(
-    'put/updateProcessOrder',
+export const updateProcessesOrder = createAsyncThunk(
+    'put/updateProcessesOrder',
     async (processes, { rejectWithValue }) => {
         try {
-            const response = await axios.put(`${url}/Processes`, processes);
-            return response.data;
+            const requests = processes.map(process => {
+                return axios.patch(`${url}/Processes/${process.id}`, { order: process.order });
+            });
+            await Promise.all(requests);
+            return processes;
         } catch (err) {
             return rejectWithValue(err.message);
         }

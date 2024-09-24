@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Skeleton } from "@mui/material";
 import styled from "styled-components";
 
@@ -7,7 +8,7 @@ const Process = ({ process }) => {
       {process?.svg ? (
         <SVGContainer dangerouslySetInnerHTML={{ __html: process.svg }} />
       ) : (
-        <Skeleton variant='rectangular' width={50} height={50} />
+        <Skeleton variant="rectangular" width={50} height={50} />
       )}
     </MainContainer>
   );
