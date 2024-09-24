@@ -17,8 +17,8 @@ function ProcessLine() {
         return (
           <MailwayContainer key={proc.id}>
             <BigCircleContainer
-              cur_color={processes.current === index ? proc.color : null}
-              onClick={(e) => setCurrentClick(e, index)}
+              cur_color={processes.current === proc.id ? proc.color : null}
+              onClick={(e) => setCurrentClick(e, proc.id)}
             >
               <CircleContainer cur_color={proc.color} />
             </BigCircleContainer>

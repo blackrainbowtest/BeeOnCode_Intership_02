@@ -1,14 +1,20 @@
 import React from "react";
 import { Box, Skeleton } from "@mui/material";
 import styled from "styled-components";
+import { setCurrent } from "features/Processes/ProcessSlice";
+import { useDispatch } from "react-redux";
 
 const Process = ({ process }) => {
+  const dispatch = useDispatch();
+  const setCurrentClick = (e, index) => {
+    dispatch(setCurrent(index));
+  };
   return (
-    <MainContainer>
+    <MainContainer onClick={(e) => setCurrentClick(e, process.id)}>
       {process?.svg ? (
         <SVGContainer dangerouslySetInnerHTML={{ __html: process.svg }} />
       ) : (
-        <Skeleton variant="rectangular" width={50} height={50} />
+        <Skeleton variant='rectangular' width={50} height={50} />
       )}
     </MainContainer>
   );
