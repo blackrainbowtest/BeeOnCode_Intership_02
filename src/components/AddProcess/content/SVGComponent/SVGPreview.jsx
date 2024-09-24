@@ -9,7 +9,6 @@ export default SVGPreview;
 
 const SVGContainer = styled.div`
   width: 100px;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

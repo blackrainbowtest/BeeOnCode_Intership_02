@@ -1,4 +1,4 @@
-import { Typography, IconButton, Box } from "@mui/material";
+import { Typography, IconButton } from "@mui/material";
 import { ReactComponent as UploadIcon } from "static/upload.svg";
 
 function IconWithText({ text }) {

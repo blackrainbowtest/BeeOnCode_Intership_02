@@ -47,6 +47,7 @@ function UploadArea({
 export default UploadArea;
 
 const StyledUploadContainer = styled(Box)(({ theme, dragging }) => ({
+  width: "100%",
   border: `${theme.spacing(1)} dashed ${
     dragging ? theme.palette.primary.light : theme.palette.primary.main
   }`,
