@@ -65,7 +65,10 @@ function InputSVG() {
       name='svg'
       control={control}
       defaultValue=''
-      render={({ field: { onChange, value } }) => (
+      rules={{
+        required: "SVG is required",
+      }}
+      render={({ field: { onChange, value }, fieldState }) => (
         <UploadArea
           onFileChange={(file) => handleFileChange(file, onChange)}
           onDrop={(e) => handleDrop(e, onChange)}
@@ -76,7 +79,9 @@ function InputSVG() {
           {displayedSvg ? (
             <>
               <SVGPreview svgContent={displayedSvg} />
-              <Typography variant='p' fontSize={14}>SVG загружен. Вы можете выбрать другой.</Typography>
+              <Typography variant='p' fontSize={14}>
+                SVG загружен. Вы можете выбрать другой.
+              </Typography>
             </>
           ) : (
             <IconWithText
@@ -86,6 +91,11 @@ function InputSVG() {
                   : "Загрузите SVG (или перетащите / вставьте)"
               }
             />
+          )}
+          {fieldState.error && (
+            <Typography color='error' variant='body2'>
+              {fieldState.error.message}
+            </Typography>
           )}
         </UploadArea>
       )}

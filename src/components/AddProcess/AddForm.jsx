@@ -1,14 +1,16 @@
 import { Box, Button } from "@mui/material";
 import { memo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as AddSvg } from "static/add_image.svg";
 import styled from "styled-components";
 import { FormProvider, useForm } from "react-hook-form";
 import InputContent from "./content/InputContent";
 import InputSVG from "./content/InputSVG";
 import ColorPicker from "./content/ColorPicker";
+import { addProcess } from "features/Processes/ProcessAPI";
 
-function AddForm({handleClose}) {
+function AddForm({ handleClose }) {
+  const processes = useSelector((state) => state?.processes.data);
   const dispatch = useDispatch();
   const methods = useForm({
     defaultValues: {
@@ -17,31 +19,30 @@ function AddForm({handleClose}) {
       color: "#000000",
     },
   });
-  const [processName, setProcessName] = useState("");
-  const [selectedSvg, setSelectedSvg] = useState(null);
-  const [selectedColor, setSelectedColor] = useState("#000000");
 
-    const selectSvg = (e) => {
-      const selectedFile = e.target.files[0];
-      if (selectedFile) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          let svgContent = reader.result;
-          svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="inherit"');
-          setSelectedSvg(svgContent);
-        };
-        reader.readAsText(selectedFile);
-      }
-    };
-    
   const submitForm = (data) => {
-    console.log(data);
+    const highestOrder = processes.reduce((prev, current) => {
+      return prev.order > current.order ? prev : current;
+    }, processes[0] || null);
+    const updatedSvg = data.svg
+      .replace(/fill="[^"]*"/g, `fill="${data.color}"`)
+      .replace(/<svg([^>]*)>/, `<svg fill="${data.color}"$1>`);
+    dispatch(
+      addProcess({
+        ...data,
+        svg: updatedSvg,
+        order: highestOrder?.order ? highestOrder.order + 1 : 1,
+      })
+    );
     handleClose();
   };
 
   return (
     <FormProvider {...methods}>
-      <MainContainer component='form' onSubmit={methods.handleSubmit(submitForm)}>
+      <MainContainer
+        component='form'
+        onSubmit={methods.handleSubmit(submitForm)}
+      >
         <InputContent />
         <InputSVG />
         <ColorPicker />
