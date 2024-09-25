@@ -9,6 +9,15 @@ import './index.css';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+const originalWarn = console.warn;
+
+console.warn = (...args) => {
+  if (args[0].includes("Support for defaultProps will be removed")) {
+    return;
+  }
+  originalWarn(...args);
+};
+
 root.render(
   <Provider store={store}>
     <App />
