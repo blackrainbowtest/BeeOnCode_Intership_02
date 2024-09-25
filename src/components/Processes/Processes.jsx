@@ -16,12 +16,14 @@ function ProcessComponent() {
 
   return (
     <MainContainer>
-      <Typography variant='h5'>Процессы</Typography>
-      <ProcessesContainer>
-        <ProcessesContent />
-        <AddProcess />
-      </ProcessesContainer>
-      <ProcessBar />
+      <OverflowContainer>
+        <Typography variant="h5">Процессы</Typography>
+        <ProcessesContainer>
+          <ProcessesContent />
+          <AddProcess />
+        </ProcessesContainer>
+        <ProcessBar />
+      </OverflowContainer>
     </MainContainer>
   );
 }
@@ -34,6 +36,25 @@ const MainContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(5),
   color: theme.palette.primary.text,
   background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+}));
+
+const OverflowContainer = styled(Box)(({ theme }) => ({
+  maxWidth: "100%",
+  padding: theme.spacing(5),
+  overflow: "auto",
+  '&::-webkit-scrollbar': {
+    width: '8px', // ширина скроллбара
+  },
+  '&::-webkit-scrollbar-track': {
+    background: theme.palette.secondary.main, // цвет фона трека
+  },
+  '&::-webkit-scrollbar-thumb': {
+    background: theme.palette.primary.main, // цвет ползунка
+    borderRadius: theme.shape.borderRadius, // радиус границ ползунка
+  },
+  '&::-webkit-scrollbar-thumb:hover': {
+    background: theme.palette.primary.add, // цвет ползунка при наведении
+  },
 }));
 
 const ProcessesContainer = styled(Box)(({ theme }) => ({

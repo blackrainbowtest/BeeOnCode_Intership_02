@@ -49,7 +49,7 @@ function ProcessesContent() {
                     draggableId={proc.id.toString()}
                     index={index}
                   >
-                    {(provided, snapshot) => (
+                    {(provided) => (
                       <div
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}

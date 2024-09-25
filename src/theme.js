@@ -3,23 +3,22 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#545662', // Основной цвет
-      text: '#ffffff', // Цвет текста
-      add: '#0FB358', // Цвет добавления (при наведении и в фокусе)
-      border: '#0FB358', // Цвет рамки при наведении и в фокусе
+      main: '#545662',
+      text: '#ffffff',
+      add: '#0FB358',
+      border: '#0FB358',
     },
     secondary: {
-      main: '#44444C', // Основной цвет фона инпута
-      text: '#000000', // Цвет текста инпута
-      add: '#0FAF52', // Цвет рамки инпута при наведении и в фокусе
+      main: '#44444C',
+      text: '#000000',
+      add: '#0FAF52',
     },
-    // Добавленные цвета
     hover: {
-      main: '#3c3c3c', // Цвет рамки при наведении
-      text: '#ffffff',  // Цвет текста при наведении (если нужно)
+      main: '#3c3c3c',
+      text: '#ffffff',
     },
     focused: {
-      main: '#0FB358', // Цвет рамки при фокусе
+      main: '#0FB358',
     },
   },
   typography: {
@@ -34,7 +33,7 @@ const theme = createTheme({
   },
   spacing: (factor) => `${0.25 * factor}rem`,
   shape: {
-    borderRadius: 8, // Добавляем радиус границ
+    borderRadius: 8,
   },
   customScale: {
     xs: 4,
