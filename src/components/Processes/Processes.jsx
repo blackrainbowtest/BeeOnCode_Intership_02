@@ -43,17 +43,17 @@ const OverflowContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(5),
   overflow: "auto",
   '&::-webkit-scrollbar': {
-    width: '8px', // ширина скроллбара
+    width: '8px',
   },
   '&::-webkit-scrollbar-track': {
-    background: theme.palette.secondary.main, // цвет фона трека
+    background: theme.palette.secondary.main,
   },
   '&::-webkit-scrollbar-thumb': {
-    background: theme.palette.primary.main, // цвет ползунка
-    borderRadius: theme.shape.borderRadius, // радиус границ ползунка
+    background: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius,
   },
   '&::-webkit-scrollbar-thumb:hover': {
-    background: theme.palette.primary.add, // цвет ползунка при наведении
+    background: theme.palette.primary.add,
   },
 }));
 
