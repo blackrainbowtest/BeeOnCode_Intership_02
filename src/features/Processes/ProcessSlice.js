@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addProcess, getProcesses, updateProcessesOrder } from "./ProcessAPI";
+import { addProcess, deleteProcessesOrder, getProcesses, updateProcess, updateProcessesOrder } from "./ProcessAPI";
 
 const initialState = {
     data: [],
-    current: 0
+    current: 0,
+    cur_edit: null,
 };
 
 const processSlice = createSlice({
@@ -16,6 +17,9 @@ const processSlice = createSlice({
         setCurrent: (state, action) => {
             state.current = action.payload
         },
+        setCurEdit: (state, action) => {
+            state.cur_edit = action.payload
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -27,11 +31,17 @@ const processSlice = createSlice({
             })
             .addCase(updateProcessesOrder.fulfilled, (state, action) => {
                 state.data = action.payload;
-            });
+            })
+            .addCase(deleteProcessesOrder.fulfilled, (state, action) => {
+                state.data = state.data.filter(proc => proc.id !== action.payload);
+            })
+            .addCase(updateProcess.fulfilled, (state, action) => {
+                state.data = state.data.map(proc => proc.id === action.payload.id ? action.payload : proc);
+            })
     }
 });
 
 
 export default processSlice.reducer;
 
-export const { updateProcessOrder, setCurrent } = processSlice.actions;
+export const { updateProcessOrder, setCurrent, setCurEdit } = processSlice.actions;

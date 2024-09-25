@@ -3,6 +3,7 @@ import { Box, Skeleton } from "@mui/material";
 import styled from "styled-components";
 import { setCurrent } from "features/Processes/ProcessSlice";
 import { useDispatch } from "react-redux";
+import MenuDots from './content/MenuDots';
 
 const Process = ({ process }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Process = ({ process }) => {
       ) : (
         <Skeleton variant='rectangular' width={50} height={50} />
       )}
+      <MenuDots process={process} />
     </MainContainer>
   );
 };
@@ -29,6 +31,7 @@ const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  position: "relative",
 }));
 
 const SVGContainer = styled(Box)(({ theme }) => ({

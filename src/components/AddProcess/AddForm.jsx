@@ -6,33 +6,42 @@ import { FormProvider, useForm } from "react-hook-form";
 import InputContent from "./content/InputContent";
 import InputSVG from "./content/InputSVG";
 import ColorPicker from "./content/ColorPicker";
-import { addProcess } from "features/Processes/ProcessAPI";
+import { addProcess, updateProcess } from "features/Processes/ProcessAPI";
+import { setCurEdit } from "features/Processes/ProcessSlice";
 
 function AddForm({ handleClose }) {
-  const processes = useSelector((state) => state?.processes.data);
+  const processes = useSelector((state) => state?.processes);
   const dispatch = useDispatch();
   const methods = useForm({
-    defaultValues: {
-      name: "",
-      svg: "",
-      color: "#000000",
-    },
+    defaultValues: processes.cur_edit
+      ? processes.data.filter((proc) => proc.id === processes.cur_edit)[0]
+      : {
+          name: "",
+          svg: "",
+          color: "#000000",
+        },
   });
 
   const submitForm = (data) => {
-    const highestOrder = processes.reduce((prev, current) => {
+    const highestOrder = processes.data.reduce((prev, current) => {
       return prev.order > current.order ? prev : current;
-    }, processes[0] || null);
+    }, processes.data[0] || null);
     const updatedSvg = data.svg
       .replace(/fill="[^"]*"/g, `fill="${data.color}"`)
       .replace(/<svg([^>]*)>/, `<svg fill="${data.color}"$1>`);
-    dispatch(
-      addProcess({
-        ...data,
-        svg: updatedSvg,
-        order: highestOrder?.order ? highestOrder.order + 1 : 1,
-      })
-    );
+    if (processes.cur_edit) {
+      dispatch(updateProcess({ ...data })).then(() => {
+        dispatch(setCurEdit(null));
+      });
+    } else {
+      dispatch(
+        addProcess({
+          ...data,
+          svg: updatedSvg,
+          order: highestOrder?.order ? highestOrder.order + 1 : 1,
+        })
+      );
+    }
     handleClose();
   };
 

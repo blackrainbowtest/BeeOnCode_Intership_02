@@ -4,17 +4,37 @@ import UploadArea from "./SVGComponent/UploadArea";
 import SVGPreview from "./SVGComponent/SVGPreview";
 import IconWithText from "./SVGComponent/IconWithText";
 import { Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 function InputSVG() {
   const { control } = useFormContext();
+  const processes = useSelector((state) => state?.processes);
   const [dragging, setDragging] = useState(false);
   const [displayedSvg, setDisplayedSvg] = useState(null);
 
   const selectedColor = useWatch({
     control,
     name: "color",
-    defaultValue: "#000000",
+    defaultValue: processes.cur_edit
+      ? processes.data.filter((proc) => proc.id === processes.cur_edit)[0].color
+      : "#ff00ff",
   });
+
+  const svgValue = useWatch({
+    control,
+    name: "svg",
+    defaultValue: "",
+  });
+
+  useEffect(() => {
+    if (processes.cur_edit) {
+      let curr = processes.data.filter(
+        (proc) => proc.id === processes.cur_edit
+      )[0];
+      console.log(curr.svg);
+      setDisplayedSvg(curr.svg);
+    }
+  }, [processes.cur_edit, processes.data, svgValue]);
 
   useEffect(() => {
     if (displayedSvg) {
