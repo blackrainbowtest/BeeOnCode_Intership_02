@@ -1,4 +1,3 @@
-import { memo } from "react";
 import ProcessName from "./ProcessName";
 import ProcessLine from './ProcessLine';
 import styled from 'styled-components';
@@ -13,7 +12,7 @@ function ProcessBar() {
   );
 }
 
-export default memo(ProcessBar);
+export default ProcessBar;
 
 const MainContainer = styled(Box)(({ theme }) => ({
   width: "100%",

@@ -1,4 +1,4 @@
-import React, { useState, memo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormContext, Controller, useWatch } from "react-hook-form";
 import UploadArea from "./SVGComponent/UploadArea";
 import SVGPreview from "./SVGComponent/SVGPreview";
@@ -123,4 +123,4 @@ function InputSVG() {
   );
 }
 
-export default memo(InputSVG);
+export default InputSVG;

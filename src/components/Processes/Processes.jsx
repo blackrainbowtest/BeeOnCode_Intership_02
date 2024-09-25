@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import AddProcess from "components/AddProcess";
 import ProcessBar from "components/ProcessBar";
 import { getProcesses } from "features/Processes/ProcessAPI";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import ProcessesContent from "./content/ProcessesContent";
@@ -26,7 +26,7 @@ function ProcessComponent() {
   );
 }
 
-export default memo(ProcessComponent);
+export default ProcessComponent;
 
 const MainContainer = styled(Box)(({ theme }) => ({
   minWidth: "100%",

@@ -1,4 +1,3 @@
-import React, { memo } from "react";
 import { Modal, Box } from "@mui/material";
 import styled from "styled-components";
 
@@ -15,7 +14,7 @@ function ModalComponent({ open = false, handleClose = () => {}, children }) {
   );
 }
 
-export default memo(ModalComponent);
+export default ModalComponent;
 
 const StyledBox = styled(Box)(({ theme }) => ({
   position: "absolute",

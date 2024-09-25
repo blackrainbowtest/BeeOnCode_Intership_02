@@ -1,5 +1,4 @@
 import { Box, Button } from "@mui/material";
-import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { FormProvider, useForm } from "react-hook-form";
@@ -62,7 +61,7 @@ function AddForm({ handleClose }) {
   );
 }
 
-export default memo(AddForm);
+export default AddForm;
 
 const MainContainer = styled(Box)(({ theme }) => ({
   width: "300px",

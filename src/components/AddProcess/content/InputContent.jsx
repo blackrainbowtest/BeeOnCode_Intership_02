@@ -1,5 +1,4 @@
 import { TextField } from "@mui/material";
-import { memo } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
@@ -36,7 +35,7 @@ function InputContent() {
   );
 }
 
-export default memo(InputContent);
+export default InputContent;
 
 const TextFieldContainer = styled(TextField)(({ theme }) => ({
   width: "100%",

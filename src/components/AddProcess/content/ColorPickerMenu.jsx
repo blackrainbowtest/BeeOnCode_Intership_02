@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Popper, Paper, Grid, Box } from "@mui/material";
 import styled from "styled-components";
 
@@ -45,7 +45,7 @@ function ColorPickerMenu({ open, anchorEl, onColorSelect = () => {} }) {
   );
 }
 
-export default memo(ColorPickerMenu);
+export default ColorPickerMenu;
 
 const PopperContainer = styled(Popper)(({ theme }) => ({
   display: "flex",

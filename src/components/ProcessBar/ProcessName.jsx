@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { memo } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -20,7 +19,7 @@ function ProcessName() {
   );
 }
 
-export default memo(ProcessName);
+export default ProcessName;
 
 const MainContainer = styled(Box)(({ theme }) => ({
   width: "100%",

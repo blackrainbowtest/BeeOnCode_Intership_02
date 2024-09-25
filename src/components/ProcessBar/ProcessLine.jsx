@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import { setCurrent } from "features/Processes/ProcessSlice";
-import { memo } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -36,7 +35,7 @@ function ProcessLine() {
   );
 }
 
-export default memo(ProcessLine);
+export default ProcessLine;
 
 const MainContainer = styled(Box)(({ theme }) => ({
   width: "100%",
