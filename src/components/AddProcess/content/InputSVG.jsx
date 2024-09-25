@@ -17,7 +17,7 @@ function InputSVG() {
     name: "color",
     defaultValue: processes.cur_edit
       ? processes.data.filter((proc) => proc.id === processes.cur_edit)[0].color
-      : "#ff00ff",
+      : "#000000",
   });
 
   const svgValue = useWatch({
