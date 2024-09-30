@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/BeeOnCode_Intership_02/static/css/main.3f2d218f.css",
+    "main.js": "/BeeOnCode_Intership_02/static/js/main.07bdf1d0.js",
+    "static/js/488.4fa6bbd1.chunk.js": "/BeeOnCode_Intership_02/static/js/488.4fa6bbd1.chunk.js",
+    "static/media/add_image.svg": "/BeeOnCode_Intership_02/static/media/add_image.2543fe575c8393315cb5f9e0c9eb2f17.svg",
+    "static/media/upload.svg": "/BeeOnCode_Intership_02/static/media/upload.6534867b9ccf29e0d9eba8177564f132.svg",
+    "static/media/edit.svg": "/BeeOnCode_Intership_02/static/media/edit.d7f7642075d4da95da1b98daa7b6f867.svg",
+    "static/media/delete.svg": "/BeeOnCode_Intership_02/static/media/delete.42c6afe0bdecb6143b47a7b93512a974.svg",
+    "index.html": "/BeeOnCode_Intership_02/index.html",
+    "main.3f2d218f.css.map": "/BeeOnCode_Intership_02/static/css/main.3f2d218f.css.map",
+    "main.07bdf1d0.js.map": "/BeeOnCode_Intership_02/static/js/main.07bdf1d0.js.map",
+    "488.4fa6bbd1.chunk.js.map": "/BeeOnCode_Intership_02/static/js/488.4fa6bbd1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f2d218f.css",
+    "static/js/main.07bdf1d0.js"
+  ]
+}
