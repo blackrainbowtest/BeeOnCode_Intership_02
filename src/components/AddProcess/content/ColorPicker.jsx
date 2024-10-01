@@ -43,7 +43,7 @@ function CustomColorPicker() {
   );
 }
 
-export default memo(CustomColorPicker);
+export default CustomColorPicker;
 
 const ColorPickerContainer = styled(Box)(({ theme }) => ({
   display: "flex",

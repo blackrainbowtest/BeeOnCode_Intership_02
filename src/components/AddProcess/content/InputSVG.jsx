@@ -1,4 +1,4 @@
-import React, { useState, memo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormContext, Controller, useWatch } from "react-hook-form";
 import UploadArea from "./SVGComponent/UploadArea";
 import SVGPreview from "./SVGComponent/SVGPreview";
@@ -17,7 +17,7 @@ function InputSVG() {
     name: "color",
     defaultValue: processes.cur_edit
       ? processes.data.filter((proc) => proc.id === processes.cur_edit)[0].color
-      : "#ff00ff",
+      : "#000000",
   });
 
   const svgValue = useWatch({
@@ -123,4 +123,4 @@ function InputSVG() {
   );
 }
 
-export default memo(InputSVG);
+export default InputSVG;

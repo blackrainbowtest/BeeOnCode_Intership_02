@@ -24,7 +24,7 @@ const processSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProcesses.fulfilled, (state, action) => {
-                state.data = action.payload;
+                state.data = action.payload.sort((a, b) => a.order - b.order);
             })
             .addCase(addProcess.fulfilled, (state, action) => {
                 state.data = [...state.data, action.payload];

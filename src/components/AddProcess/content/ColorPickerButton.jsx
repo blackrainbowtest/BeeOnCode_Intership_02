@@ -1,4 +1,3 @@
-import React, { memo } from "react";
 import { Button } from "@mui/material";
 import styled from "styled-components";
 
@@ -14,7 +13,7 @@ function ColorPickerButton({ onClick, selectedColor }) {
   );
 }
 
-export default memo(ColorPickerButton);
+export default ColorPickerButton;
 
 const ButtonContainer = styled(Button)(({ theme }) => ({
   width: "100%",
