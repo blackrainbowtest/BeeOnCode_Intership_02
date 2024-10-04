@@ -44,6 +44,4 @@ npm start
 
 ### Note
 
-
-
 Make sure you are using Node.js version 14 or higher for the project to work correctly.
