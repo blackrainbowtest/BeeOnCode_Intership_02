@@ -42,6 +42,7 @@ npm start
 - **Edit and Delete**: You can edit and delete existing items.
 - **Select an item**: Clicking on an item will highlight it with a circle to indicate the selected process.
 
+
 ### Note
 
 Make sure you are using Node.js version 14 or higher for the project to work correctly.
